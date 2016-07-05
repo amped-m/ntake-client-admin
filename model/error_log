@@ -1,0 +1,18 @@
+[22-Jun-2016 21:27:41 UTC] PHP Notice:  Undefined index: title in /home/ampedmarketing/test-server/ntake-admin/view/content.php on line 24
+[22-Jun-2016 21:27:41 UTC] PHP Notice:  Undefined index: subtitle in /home/ampedmarketing/test-server/ntake-admin/view/content.php on line 25
+[22-Jun-2016 21:27:41 UTC] PHP Notice:  Undefined index: vision in /home/ampedmarketing/test-server/ntake-admin/view/content.php on line 26
+[22-Jun-2016 21:27:41 UTC] PHP Notice:  Undefined index: contact_msg in /home/ampedmarketing/test-server/ntake-admin/view/content.php on line 27
+[22-Jun-2016 21:58:14 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 21:58:14 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 21:59:49 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 21:59:49 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 21:59:56 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 21:59:56 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:00:12 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:00:12 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:00:24 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:00:24 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:04:21 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:04:21 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:06:49 UTC] PHP Notice:  Undefined variable: db in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
+[22-Jun-2016 22:06:49 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ampedmarketing/test-server/ntake-admin/model/account.php on line 23
