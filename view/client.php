@@ -256,7 +256,7 @@ h2.first-head {
   line-height: 22px;
   padding: 0 10px;
 }
-.container.client > h2 {
+.container.client h2 {
   background: #ddd none repeat scroll 0 0;
   padding: 5px 0;
   text-align: center;
