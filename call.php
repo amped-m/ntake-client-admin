@@ -18,8 +18,8 @@
 
   // initiate phone call via Twilio REST API    
   // Set our AccountSid and AuthToken 
-  $AccountSid = "ACe46cfc552dcd97c22f3c2a3ae448ebb6";
-  $AuthToken = "b846d4a2a3dbdb309cc284788904769e";
+  $AccountSid = "AC1fa65a81c2591b246215920ca9ffc9fd";
+  $AuthToken = "300c4269a673067451610fa823b7030a";
   
   // Instantiate a new Twilio Rest Client 
   $client = new Services_Twilio($AccountSid, $AuthToken);
@@ -27,14 +27,15 @@
   try {
     // make call
     $call = $client->account->calls->create(
-      '+14137254508',                // Verified Outgoing Caller ID or Twilio number
-      $number,                       // The phone number you wish to dial
-      'http://test.amped-m.com/ntake-admin/twiml.php' // The URL of twiml.php on your server
-    );
+      '+18553361543',                // Verified Outgoing Caller ID or Twilio number
+     $number,                       // The phone number you wish to dial
+      'http://112.196.9.211:8022/phone_verification/twiml.php', // The URL of twiml.php on your server
+      array(   
+	'Record' => 'true', 
+));
   } catch (Exception $e) {
     echo 'Error starting phone call: ' . $e->getMessage();
   }
-
   // return verification code as JSON
   $json = array();	
   $json["verification_code"] = $code;

@@ -92,10 +92,18 @@ require_once('lib/Services/Twilio.php'); // Loads the library
 $sid = "AC1fa65a81c2591b246215920ca9ffc9fd"; 
 $token = "300c4269a673067451610fa823b7030a";
 $client = new Services_Twilio($sid, $token);
-
 // Get an object from its sid. If you do not have a sid,
 // check out the list resource examples on this page
-
+?>
+<div class="container client"> 
+<h2 class="first-head">All Recorded files</h2>
+<?php
+foreach ($client->account->recordings as $recording) {
+	?>
+	
+   <p><?php echo "https://api.twilio.com".$recording->uri; ?></p>
+    <?php
+}
 ?>
 <h2>Call History</h2>
 <table class="table-nm">
@@ -107,6 +115,8 @@ $client = new Services_Twilio($sid, $token);
 		<th>Call Duration</th>
 		<th>Call Type</th>
 		<th>Call SID</th>
+		<th>Name</th>
+		<th>Call Record</th>
 		</tr>
 <?php
 foreach ($client->account->calls as $call) 
@@ -120,12 +130,24 @@ foreach ($client->account->calls as $call)
 		<td><?php echo $call->duration; ?></td>
 		<td><?php echo $call->direction; ?></td>
 		<td><?php echo $call->sid; ?></td>
-		
-	</tr>
-	<?php
-} 
+		<td><?php echo $call->name; ?></td>
+		<?php
+		$call_sid = $call->sid;
+		foreach ($client->account->recordings->getIterator(0, 50, array(
+        "CallSid" => $call_sid
+			)) as $recording) {
+		   
+			?>
+			   <td><a href="<?php echo "https://api.twilio.com".$recording->uri; ?>" target="blank"><img src="assets/images/play.png" alt="play"></a></td>
+				<?php
+			}
+			?>
+			</tr>
+			<?php
+		} 
 	  ?>
 	  </table>
+	  <div class="message-history">
 	  <h2>Message History</h2>
 	  <table class="table-nm">
 	<tr>
@@ -152,24 +174,26 @@ foreach ($client->account->messages as $message)
 } 
 	  ?>
 	  </table>
+	  </div>
+	  <div class="entry-div">
+	<div class="enter-number-div">
     <form id="enter_number">
       <p>Enter your phone number:</p>
-      <p><input type="text" name="phone_number" id="phone_number" /></p>
-      <p><input type="submit" name="submit" value="Verify" /></p>
+      <p><input type="text" name="phone_number" id="phone_number" /><input type="submit" name="submit" value="Verify" /></p>
     </form>
-
+    </div>
     <div id="verify_code" style="display: none;">
       <p>Calling you now.</p>
       <p>When prompted, enter the verification code:</p>
       <h1 id="verification_code"></h1>
       <p><strong id="status">Waiting...</strong></p>
     </div>
+	<div class="enter-number-div">
 	<form id="enter_number_sms">
 		<p>Enter your phone number:</p>
-		<p><input type="text" name="phone_number_sms" id="phone_number_sms" /></p>
-		<p><input type="submit" name="submit" value="Verify SMS" /></p>
+		<p><input type="text" name="phone_number_sms" id="phone_number_sms" /> <input type="submit" name="submit" value="Verify SMS" /></p>
 	</form>
-	
+	</div>
 	<form id="verify_code_sms" style="display: none;" action="status_sms.php" method="post">
 		<p>Sending you a text message with your verification code.</p>
 		<p>Once received, enter it here:</p>
@@ -177,5 +201,70 @@ foreach ($client->account->messages as $message)
 		<input type="hidden" value="" id="phone_number2" name="phone_number" />
 		<p><input type="submit" value="Verify" /></p>
 	</form>
+	</div>
+	</div>
+	<style>
+	h2.first-head {
+    text-align: center;
+    text-transform: uppercase;
+    }
+    header .nav-bar li {
+  color: #eee;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  list-style: outside none none;
+  margin: 0 10px;
+  text-transform: capitalize;
+  transition: all 0.3s ease 0s;
+}
+header .nav-bar {
+  float: right;
+  margin-top: 20px;
+}
+.enter-number-div {
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+.entry-div {
+    margin: 18px 0;
+    text-align: center;
+}
+.client {
+  box-shadow: 0 0 4px #222222;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.table-nm td, th {
+  font-size: 12px;
+  padding: 0 10px;
+}
+.container.client > p {
+  text-align: center;
+}
+.client > h2 {
+  font-size: 22px;
+}
+h2.first-head {
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.table-nm td, th {
+  font-size: 12px;
+  line-height: 22px;
+  padding: 0 10px;
+}
+.container.client > h2 {
+  background: #ddd none repeat scroll 0 0;
+  padding: 5px 0;
+  text-align: center;
+}
+.client th {
+    font-size: 12px;
+}
+.table-nm tr td:last-child {word-break: break-all;}
+	</style>
   </body>
 </html>
